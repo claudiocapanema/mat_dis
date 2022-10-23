@@ -1,13 +1,3 @@
-//
-// Created by claudio on 23/10/22.
-//
-
-#ifndef UNTITLED_PASSEIO_H
-#define UNTITLED_PASSEIO_H
-
-#endif //UNTITLED_PASSEIO_H
-
-
 #include <stdio.h>
 #define N 8
 

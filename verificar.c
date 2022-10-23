@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "passeio.h"
 
-#define N_TESTE 2
+#define N_TESTE 4
 
 void validar_movimento(int resul[3], int atual[2], int proximo[2]) {
 
@@ -203,31 +203,28 @@ int ler_e_verificar(int rows, int cols, int (*matriz)[cols], const char* filenam
 int main() {
 
     int x, y;
-//    int posicao_inicial_original[4][2];
-//
-//    posicao_inicial_original[0][0] = 1;
-//    posicao_inicial_original[0][1] = 1;
-//
-//    for (int i = 1; i < testes; i++){
-//
-//        x = rand() % 8 + 1;
-//        y = rand() % 8 + 1;
-//        posicao_inicial_original[i][0] = x;
-//        posicao_inicial_original[i][1] = y;
-//    }
-
     int posicao_inicial_original[N_TESTE][2];
+    time_t t;
+    srand((unsigned) time (&t));
+
     posicao_inicial_original[0][0] = 1;
     posicao_inicial_original[0][1] = 1;
-    posicao_inicial_original[1][0] = 5;
-    posicao_inicial_original[1][1] = 6;
 
+    for (int i = 1; i < N_TESTE; i++){
 
-//    for (int i = 0; i < testes; i++){
-//
-//        passeio(posicao_inicial_original[i][0], posicao_inicial_original[i][1]);
-//    }
+        x = rand() % 8 + 1;
+        y = rand() % 8 + 1;
+        posicao_inicial_original[i][0] = x;
+        posicao_inicial_original[i][1] = y;
+    }
 
+    // Aplicar os casos de teste
+    for (int i = 0; i < N_TESTE; i++){
+
+        passeio(posicao_inicial_original[i][0], posicao_inicial_original[i][1]);
+    }
+
+    // Verificar os resultados
     int matrix[8][8];
 
     ler_e_verificar(8, 8, matrix, "saida.txt", posicao_inicial_original);
